@@ -18,7 +18,7 @@ def read_json(filename=test_json):
 
 def write_to_json_file(data, filename=test_json):
     current_data = read_json()
-    current_data["test_asmenys"].append(data)
+    current_data["person_data"].append(data)
     with open(filename, 'w') as test_json:
         json.dump(current_data, test_json)
 
@@ -27,7 +27,7 @@ def delete_from_json_file(id, filename='test.json'):
     pass
 
 
-class Test:
+class Person:
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
@@ -45,9 +45,18 @@ class Test:
         return json_data
 
 
+class Samurai(Person):
+
+    def __init__(self, name, surname, sword_name):
+        super().__init__(name, surname)
+        self.sword_name = sword_name
+
+
 if __name__ == '__main__':
 
-    vardas = input("Iveskite varda: ")
-    pavarde = input("Iveskite varda: ")
-    asmuo = Test(vardas, pavarde)
-    write_to_json_file(asmuo.get_dict_data())
+    samurajus = Samurai('Kil', 'U', 'Vejas')
+
+    # name = input("Enter name: ")
+    # surname = input("Enter surname: ")
+    # asmuo = Person(name, surname)
+    # write_to_json_file(asmuo.get_dict_data())
