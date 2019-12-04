@@ -1,13 +1,10 @@
 import json
 import os
 """
-empty json looks like this: {"test_asmenys": []}
+empty json looks like this: {"person_data": []}
 """
 TEST_JSON_FILENAME = 'test.json'
-test_json1 = os.path.join(os.getcwd(), TEST_JSON_FILENAME)
-test_json = '/home/paulius/PycharmProjects/untitled1/crud-json/test.json'
-
-x = test_json1 == test_json
+test_json = os.path.join(os.getcwd(), TEST_JSON_FILENAME)
 
 
 def read_json(filename=test_json):
@@ -54,9 +51,9 @@ class Samurai(Person):
 
 if __name__ == '__main__':
 
-    samurajus = Samurai('Kil', 'U', 'Vejas')
+    # samurajus = Samurai('Kil', 'U', 'Vejas')
 
-    # name = input("Enter name: ")
-    # surname = input("Enter surname: ")
-    # asmuo = Person(name, surname)
-    # write_to_json_file(asmuo.get_dict_data())
+    name = input("Enter name: ")
+    surname = input("Enter surname: ")
+    asmuo = Person(name, surname)
+    write_to_json_file(asmuo.get_dict_data())
