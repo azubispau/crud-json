@@ -1,2 +1,2 @@
 # crud-json
-some basic JSON crud function
+some basic JSON crud functions
