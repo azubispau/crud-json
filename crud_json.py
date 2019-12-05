@@ -23,7 +23,7 @@ def write_to_json_file(data, json_array="person_data", filename=person_data_json
     current_data = read_json()
     current_data[json_array].append(data)
     with open(filename, 'w') as f_json:
-        json.dump(current_data, test_json)
+        json.dump(current_data, f_json)
 
 
 def delete_from_json_file(key, val, json_array="person_data", filename='person_data.json'):
@@ -63,7 +63,7 @@ class Samurai(Person):
         self.sword_name = sword_name
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
     # samurajus = Samurai('Kil', 'U', 'Vejas')
 
