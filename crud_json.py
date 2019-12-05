@@ -26,7 +26,7 @@ def write_to_json_file(data, json_array="person_data", filename=person_data_json
         json.dump(current_data, f_json)
 
 
-def delete_from_json_file(key, val, json_array="person_data", filename='person_data.json'):
+def delete_from_json_file(val, key="id", json_array="person_data", filename='person_data.json'):
 
     current_data = read_json()
     filtered_array = [record for record in current_data[json_array] if not (key in record and record[key] == val)]
@@ -55,27 +55,33 @@ class Person:
         json_data = json.dumps(dict_data)
         return json_data
 
+    @staticmethod
+    def get_some_text(text):
+        return text
+
 
 class Samurai(Person):
 
-    def __init__(self, name, surname, sword_name):
-        super().__init__(name, surname)
+    def __init__(self, id, name, surname, sword_name):
+        super().__init__(id, name, surname)
         self.sword_name = sword_name
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
-    # samurajus = Samurai('Kil', 'U', 'Vejas')
+    json_dict = read_json()
 
-    # CREATE
-    # id = input("Enter id: ")
-    # name = input("Enter name: ")
-    # surname = input("Enter surname: ")
-    # asmuo = Person(id, name, surname)
-    # write_to_json_file(asmuo.get_dict_data())
+    print(json_dict["person_data"])
 
-    # READ
-    # print(read_json())
-
-    # DELETE
-    # delete_from_json_file('id', '10')
+#     CREATE
+    id = input("Enter id: ")
+    name = input("Enter name: ")
+    surname = input("Enter surname: ")
+    asmuo = Person(id, name, surname)
+    write_to_json_file(asmuo.get_dict_data())
+#
+#     READ
+#     print(read_json())
+#
+#     DELETE
+#     delete_from_json_file('id', '10')
