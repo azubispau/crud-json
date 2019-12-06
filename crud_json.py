@@ -65,23 +65,3 @@ class Samurai(Person):
     def __init__(self, id, name, surname, sword_name):
         super().__init__(id, name, surname)
         self.sword_name = sword_name
-
-
-if __name__ == '__main__':
-
-    json_dict = read_json()
-
-    print(json_dict["person_data"])
-
-#     CREATE
-    id = input("Enter id: ")
-    name = input("Enter name: ")
-    surname = input("Enter surname: ")
-    asmuo = Person(id, name, surname)
-    write_to_json_file(asmuo.get_dict_data())
-#
-#     READ
-#     print(read_json())
-#
-#     DELETE
-#     delete_from_json_file('id', '10')
